@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import bookImage from '@/assets/vai_encarar.jpeg';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -78,25 +79,11 @@ const BookSection = () => {
               
               {/* Book container */}
               <div className="relative glass-card p-6 rounded-2xl neon-glow">
-                <div className="relative w-64 md:w-80 aspect-[3/4] bg-gradient-to-br from-primary/20 to-secondary/20 rounded-lg overflow-hidden">
-                  {/* Book cover design */}
-                  <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center">
-                    <div className="absolute inset-0 bg-gradient-to-br from-muted via-card to-muted" />
-                    <div className="relative z-10">
-                      <span className="text-xs font-heading tracking-widest text-primary mb-4 block">ANDRÉA KRUG</span>
-                      <h3 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4 neon-text">
-                        VAI<br />ENCARAR?
-                      </h3>
-                      <div className="w-16 h-px bg-gradient-to-r from-transparent via-primary to-transparent mx-auto mb-4" />
-                      <p className="text-sm text-muted-foreground font-body">
-                        Um convite à<br />coragem e ação
-                      </p>
-                    </div>
-                  </div>
-                  
-                  {/* Book spine effect */}
-                  <div className="absolute left-0 top-0 bottom-0 w-4 bg-gradient-to-r from-muted/50 to-transparent" />
-                </div>
+                <img 
+                  src={bookImage} 
+                  alt="Andréa Krug segurando o livro Vai Encarar?" 
+                  className="w-64 md:w-80 rounded-lg object-cover shadow-2xl"
+                />
               </div>
             </div>
           </div>
