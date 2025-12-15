@@ -1,9 +1,52 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import bookImage from '@/assets/vai_encarar.jpeg';
 
 gsap.registerPlugin(ScrollTrigger);
+
+interface CounterProps {
+  end: number;
+  suffix?: string;
+  decimals?: number;
+}
+
+const Counter = ({ end, suffix = '', decimals = 0 }: CounterProps) => {
+  const [count, setCount] = useState(0);
+  const counterRef = useRef<HTMLDivElement>(null);
+  const hasAnimated = useRef(false);
+
+  useEffect(() => {
+    const el = counterRef.current;
+    if (!el || hasAnimated.current) return;
+
+    const trigger = ScrollTrigger.create({
+      trigger: el,
+      start: 'top 90%',
+      onEnter: () => {
+        if (hasAnimated.current) return;
+        hasAnimated.current = true;
+        
+        gsap.to({ value: 0 }, {
+          value: end,
+          duration: 2,
+          ease: 'power2.out',
+          onUpdate: function() {
+            setCount(this.targets()[0].value);
+          }
+        });
+      }
+    });
+
+    return () => trigger.kill();
+  }, [end]);
+
+  return (
+    <div ref={counterRef} className="text-2xl md:text-3xl font-heading font-bold text-primary neon-text">
+      {decimals > 0 ? count.toFixed(decimals) : Math.floor(count)}{suffix}
+    </div>
+  );
+};
 
 const BookSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -125,20 +168,24 @@ const BookSection = () => {
 
             {/* Stats */}
             <div className="grid grid-cols-3 gap-6 mt-12 pt-8 border-t border-glass-border">
-              {[
-                { value: '10K+', label: 'Leitores' },
-                { value: '4.9', label: 'Avaliação' },
-                { value: '50+', label: 'Palestras' },
-              ].map((stat) => (
-                <div key={stat.label} className="text-center">
-                  <div className="text-2xl md:text-3xl font-heading font-bold text-primary neon-text">
-                    {stat.value}
-                  </div>
-                  <div className="text-sm text-muted-foreground font-body mt-1">
-                    {stat.label}
-                  </div>
+              <div className="text-center">
+                <Counter end={10} suffix="K+" />
+                <div className="text-sm text-muted-foreground font-body mt-1">
+                  Leitores
                 </div>
-              ))}
+              </div>
+              <div className="text-center">
+                <Counter end={4.9} decimals={1} />
+                <div className="text-sm text-muted-foreground font-body mt-1">
+                  Avaliação
+                </div>
+              </div>
+              <div className="text-center">
+                <Counter end={50} suffix="+" />
+                <div className="text-sm text-muted-foreground font-body mt-1">
+                  Palestras
+                </div>
+              </div>
             </div>
           </div>
         </div>
