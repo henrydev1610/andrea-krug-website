@@ -155,15 +155,16 @@ const Gallery = () => {
 
           {/* Right side - Photo Grid */}
           <div className="lg:col-span-8 order-first lg:order-last">
+            {/* Mobile: horizontal scroll | Desktop: grid */}
             <div
               ref={gridRef}
-              className="grid grid-cols-2 gap-3 md:gap-4 auto-rows-auto md:auto-rows-[140px]"
+              className="flex gap-3 overflow-x-auto snap-x snap-mandatory pb-4 scrollbar-hide md:grid md:grid-cols-3 md:gap-4 md:auto-rows-[140px] md:overflow-visible md:pb-0"
             >
               {galleryItems.map((item, index) => (
                 <div
                   key={item.id}
                   onClick={() => openLightbox(index)}
-                  className={`group relative rounded-xl overflow-hidden cursor-pointer ${getSizeClasses(item.size, index)}`}
+                  className={`group relative rounded-xl overflow-hidden cursor-pointer snap-center flex-shrink-0 w-[280px] h-[200px] md:w-auto md:h-auto ${getSizeClasses(item.size, index)}`}
                 >
                   {/* Real image */}
                   <img 
