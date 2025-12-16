@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
-import heroBg from '@/assets/hero-bg.jpeg';
+import heroVideo from '@/assets/hero-video.mp4';
 
 const Hero = () => {
   const heroRef = useRef<HTMLElement>(null);
@@ -64,14 +64,16 @@ const Hero = () => {
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
       style={{ opacity: 0 }}
     >
-      {/* Background image */}
-      <div 
-        className="absolute inset-0 bg-cover bg-no-repeat"
-        style={{ 
-          backgroundImage: `url(${heroBg})`,
-          backgroundPosition: 'center center',
-        }}
-      />
+      {/* Background video */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover"
+      >
+        <source src={heroVideo} type="video/mp4" />
+      </video>
       
       {/* Dark overlay with gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/70 to-background" />
