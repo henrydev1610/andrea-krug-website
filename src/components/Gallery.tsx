@@ -211,18 +211,18 @@ const Gallery = () => {
             <X className="w-6 h-6" />
           </button>
 
-          {/* Navigation */}
+          {/* Navigation - Mobile optimized */}
           <button
             onClick={(e) => { e.stopPropagation(); goToPrev(); }}
-            className="absolute left-4 md:left-8 z-10 w-12 h-12 rounded-full glass-card flex items-center justify-center text-foreground hover:text-primary transition-colors"
+            className="absolute left-2 md:left-8 top-1/2 -translate-y-1/2 z-10 w-14 h-14 md:w-12 md:h-12 rounded-full bg-background/80 border border-muted-foreground/30 backdrop-blur-md flex items-center justify-center text-foreground hover:text-primary hover:border-primary/50 transition-all duration-300 active:scale-95"
           >
-            <ChevronLeft className="w-6 h-6" />
+            <ChevronLeft className="w-7 h-7 md:w-6 md:h-6" />
           </button>
           <button
             onClick={(e) => { e.stopPropagation(); goToNext(); }}
-            className="absolute right-4 md:right-8 z-10 w-12 h-12 rounded-full glass-card flex items-center justify-center text-foreground hover:text-primary transition-colors"
+            className="absolute right-2 md:right-8 top-1/2 -translate-y-1/2 z-10 w-14 h-14 md:w-12 md:h-12 rounded-full bg-background/80 border border-muted-foreground/30 backdrop-blur-md flex items-center justify-center text-foreground hover:text-primary hover:border-primary/50 transition-all duration-300 active:scale-95"
           >
-            <ChevronRight className="w-6 h-6" />
+            <ChevronRight className="w-7 h-7 md:w-6 md:h-6" />
           </button>
 
           {/* Content */}
