@@ -214,15 +214,15 @@ const Gallery = () => {
           {/* Navigation - Mobile optimized */}
           <button
             onClick={(e) => { e.stopPropagation(); goToPrev(); }}
-            className="absolute left-2 md:left-8 top-1/2 -translate-y-1/2 z-20 w-14 h-14 md:w-12 md:h-12 rounded-full bg-background/80 border border-muted-foreground/30 backdrop-blur-md flex items-center justify-center text-foreground hover:text-primary hover:border-primary/50 transition-all duration-300 active:scale-95"
+            className="absolute left-2 md:left-8 top-1/2 -translate-y-1/2 z-20 w-14 h-14 md:w-12 md:h-12 flex items-center justify-center text-foreground hover:text-primary transition-all duration-300 active:scale-95"
           >
-            <ChevronLeft className="w-7 h-7 md:w-6 md:h-6" />
+            <ChevronLeft className="w-10 h-10 md:w-8 md:h-8 drop-shadow-lg" />
           </button>
           <button
             onClick={(e) => { e.stopPropagation(); goToNext(); }}
-            className="absolute right-2 md:right-8 top-1/2 -translate-y-1/2 z-20 w-14 h-14 md:w-12 md:h-12 rounded-full bg-background/80 border border-muted-foreground/30 backdrop-blur-md flex items-center justify-center text-foreground hover:text-primary hover:border-primary/50 transition-all duration-300 active:scale-95"
+            className="absolute right-2 md:right-8 top-1/2 -translate-y-1/2 z-20 w-14 h-14 md:w-12 md:h-12 flex items-center justify-center text-foreground hover:text-primary transition-all duration-300 active:scale-95"
           >
-            <ChevronRight className="w-7 h-7 md:w-6 md:h-6" />
+            <ChevronRight className="w-10 h-10 md:w-8 md:h-8 drop-shadow-lg" />
           </button>
 
           {/* Content */}
