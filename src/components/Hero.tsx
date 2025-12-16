@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
+import heroBg from '@/assets/hero-bg.jpeg';
 
 const Hero = () => {
   const heroRef = useRef<HTMLElement>(null);
@@ -63,8 +64,14 @@ const Hero = () => {
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
       style={{ opacity: 0 }}
     >
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-muted/20" />
+      {/* Background image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${heroBg})` }}
+      />
+      
+      {/* Dark overlay with gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/70 to-background" />
       
       {/* Animated grid */}
       <div className="absolute inset-0 opacity-20">
