@@ -95,7 +95,7 @@ const Gallery = () => {
 
   const getSizeClasses = (size: string, index: number) => {
     // Mobile: simpler grid with alternating sizes
-    // Desktop: original masonry layout
+    // Desktop: larger masonry layout
     switch (size) {
       case 'large':
         return 'col-span-2 row-span-1 md:row-span-2 min-h-[180px] md:min-h-0';
@@ -157,7 +157,7 @@ const Gallery = () => {
           <div className="lg:col-span-8 order-first lg:order-last">
             <div
               ref={gridRef}
-              className="grid grid-cols-2 gap-3 md:gap-4 auto-rows-auto md:auto-rows-[140px]"
+              className="grid grid-cols-2 gap-3 md:gap-5 auto-rows-auto md:auto-rows-[180px]"
             >
               {galleryItems.map((item, index) => (
                 <div
