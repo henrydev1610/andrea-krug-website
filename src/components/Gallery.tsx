@@ -93,14 +93,16 @@ const Gallery = () => {
     setCurrentIndex((prev) => (prev === galleryItems.length - 1 ? 0 : prev + 1));
   };
 
-  const getSizeClasses = (size: string) => {
+  const getSizeClasses = (size: string, index: number) => {
+    // Mobile: simpler grid with alternating sizes
+    // Desktop: original masonry layout
     switch (size) {
       case 'large':
-        return 'col-span-2 row-span-2';
+        return 'col-span-2 row-span-1 md:row-span-2 min-h-[180px] md:min-h-0';
       case 'medium':
-        return 'col-span-1 row-span-2';
+        return 'col-span-1 row-span-1 md:row-span-2 min-h-[180px] md:min-h-0';
       default:
-        return 'col-span-1 row-span-1';
+        return 'col-span-1 row-span-1 min-h-[180px] md:min-h-0';
     }
   };
 
@@ -152,16 +154,16 @@ const Gallery = () => {
           </div>
 
           {/* Right side - Photo Grid */}
-          <div className="lg:col-span-8">
+          <div className="lg:col-span-8 order-first lg:order-last">
             <div
               ref={gridRef}
-              className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 auto-rows-[120px] md:auto-rows-[140px]"
+              className="grid grid-cols-2 gap-3 md:gap-4 auto-rows-auto md:auto-rows-[140px]"
             >
               {galleryItems.map((item, index) => (
                 <div
                   key={item.id}
                   onClick={() => openLightbox(index)}
-                  className={`group relative rounded-xl overflow-hidden cursor-pointer ${getSizeClasses(item.size)}`}
+                  className={`group relative rounded-xl overflow-hidden cursor-pointer ${getSizeClasses(item.size, index)}`}
                 >
                   {/* Real image */}
                   <img 
