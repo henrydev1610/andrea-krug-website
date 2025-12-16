@@ -3,17 +3,20 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { X, ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
 
+import foto1 from '@/assets/gallery/foto1.jpeg';
+import foto2 from '@/assets/gallery/foto2.jpeg';
+import foto3 from '@/assets/gallery/foto3.jpeg';
+import foto4 from '@/assets/gallery/foto4.jpeg';
+import foto5 from '@/assets/gallery/foto5.jpeg';
+
 gsap.registerPlugin(ScrollTrigger);
 
 const galleryItems = [
-  { id: 1, title: 'Palestra Corporativa', category: 'Eventos', size: 'large' },
-  { id: 2, title: 'Workshop de Liderança', category: 'Workshops', size: 'small' },
-  { id: 3, title: 'Congresso Nacional', category: 'Congressos', size: 'small' },
-  { id: 4, title: 'Mentoria em Grupo', category: 'Mentorias', size: 'medium' },
-  { id: 5, title: 'Evento Empresarial', category: 'Eventos', size: 'medium' },
-  { id: 6, title: 'Treinamento Executivo', category: 'Workshops', size: 'small' },
-  { id: 7, title: 'Palestra Motivacional', category: 'Eventos', size: 'small' },
-  { id: 8, title: 'Conferência de Líderes', category: 'Congressos', size: 'medium' },
+  { id: 1, title: 'Grande Evento', category: 'Palco', size: 'large', image: foto5 },
+  { id: 2, title: 'Domingão', category: 'TV', size: 'medium', image: foto4 },
+  { id: 3, title: 'Momento Especial', category: 'Encontros', size: 'small', image: foto2 },
+  { id: 4, title: 'Lançamento do Livro', category: 'Eventos', size: 'large', image: foto3 },
+  { id: 5, title: 'Parceria', category: 'Networking', size: 'small', image: foto1 },
 ];
 
 const Gallery = () => {
@@ -160,34 +163,26 @@ const Gallery = () => {
                   onClick={() => openLightbox(index)}
                   className={`group relative rounded-xl overflow-hidden cursor-pointer ${getSizeClasses(item.size)}`}
                 >
-                  {/* Gradient background */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/30 via-secondary/20 to-accent/30" />
+                  {/* Real image */}
+                  <img 
+                    src={item.image} 
+                    alt={item.title}
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
                   
-                  {/* Glass overlay */}
-                  <div className="absolute inset-0 bg-background/40 backdrop-blur-sm" />
-                  
-                  {/* Decorative elements */}
-                  <div className="absolute top-3 left-3 w-8 h-8 border border-primary/40 rounded-full" />
-                  <div className="absolute bottom-3 right-3 w-4 h-4 bg-primary/30 rounded-full" />
+                  {/* Gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
                   
                   {/* Content */}
-                  <div className="absolute inset-0 flex flex-col items-center justify-center p-4 text-center">
-                    <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-primary/20 border border-primary/30 flex items-center justify-center mb-3 group-hover:scale-110 group-hover:bg-primary/30 transition-all duration-300">
-                      <span className="text-lg md:text-2xl font-heading font-bold text-primary">
-                        {item.id}
-                      </span>
-                    </div>
-                    <h3 className="text-sm md:text-base font-heading font-semibold text-foreground mb-1 line-clamp-2">
+                  <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                    <h3 className="text-sm md:text-base font-heading font-semibold text-foreground mb-1">
                       {item.title}
                     </h3>
-                    <span className="text-xs text-muted-foreground font-body">
+                    <span className="text-xs text-primary font-body">
                       {item.category}
                     </span>
                   </div>
 
-                  {/* Hover overlay */}
-                  <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 transition-colors duration-300" />
-                  
                   {/* Border effect */}
                   <div className="absolute inset-0 border border-glass-border group-hover:border-primary/50 rounded-xl transition-all duration-300" />
                 </div>
@@ -233,17 +228,17 @@ const Gallery = () => {
             onClick={(e) => e.stopPropagation()}
             className="relative z-10 w-full max-w-4xl mx-4"
           >
-            <div className="aspect-[16/9] rounded-2xl overflow-hidden glass-card neon-glow bg-gradient-to-br from-primary/30 via-secondary/20 to-accent/30">
-              <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center">
-                <div className="w-24 h-24 rounded-full bg-primary/20 border border-primary/30 flex items-center justify-center mb-6">
-                  <span className="text-4xl font-heading font-bold text-primary">
-                    {galleryItems[currentIndex].id}
-                  </span>
-                </div>
-                <h3 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-3">
+            <div className="aspect-[16/10] rounded-2xl overflow-hidden neon-glow">
+              <img 
+                src={galleryItems[currentIndex].image} 
+                alt={galleryItems[currentIndex].title}
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-background/90 to-transparent">
+                <h3 className="text-2xl md:text-3xl font-heading font-bold text-foreground mb-1">
                   {galleryItems[currentIndex].title}
                 </h3>
-                <span className="text-lg text-muted-foreground font-body">
+                <span className="text-base text-primary font-body">
                   {galleryItems[currentIndex].category}
                 </span>
               </div>
