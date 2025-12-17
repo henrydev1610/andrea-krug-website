@@ -42,8 +42,9 @@ const Gallery = () => {
     const isDesktop = window.matchMedia('(min-width: 1024px)').matches;
 
     const ctx = gsap.context(() => {
-      // Animate the CTA card
-      if (cardRef.current) {
+      // Desktop only: Animate and pin the CTA card
+      if (isDesktop && cardRef.current && cardWrapperRef.current && gridRef.current) {
+        // Animate the CTA card
         gsap.fromTo(
           cardRef.current,
           { opacity: 0, x: -60 },
@@ -58,11 +59,9 @@ const Gallery = () => {
             },
           }
         );
-      }
 
-      // Pin the card on desktop only
-      if (isDesktop && cardWrapperRef.current && gridRef.current) {
-        const cardHeight = cardRef.current?.offsetHeight || 0;
+        // Pin the card
+        const cardHeight = cardRef.current.offsetHeight || 0;
         const gridHeight = gridRef.current.offsetHeight;
         
         ScrollTrigger.create({
