@@ -31,12 +31,15 @@ const Gallery = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
   const cardRef = useRef<HTMLDivElement>(null);
+  const cardWrapperRef = useRef<HTMLDivElement>(null);
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion) return;
+
+    const isDesktop = window.matchMedia('(min-width: 1024px)').matches;
 
     const ctx = gsap.context(() => {
       // Animate the CTA card
@@ -55,6 +58,17 @@ const Gallery = () => {
             },
           }
         );
+      }
+
+      // Pin the card on desktop only
+      if (isDesktop && cardWrapperRef.current && gridRef.current) {
+        ScrollTrigger.create({
+          trigger: gridRef.current,
+          start: 'top 120px',
+          end: 'bottom bottom',
+          pin: cardWrapperRef.current,
+          pinSpacing: false,
+        });
       }
 
       // Animate gallery items
@@ -125,8 +139,8 @@ const Gallery = () => {
 
         <div className="grid lg:grid-cols-12 gap-8 items-start">
           {/* Left side - CTA Card */}
-          <div ref={cardRef} className="lg:col-span-4 lg:sticky lg:top-32">
-            <div className="glass-card p-8 rounded-2xl neon-border relative overflow-hidden">
+          <div ref={cardWrapperRef} className="lg:col-span-4">
+            <div ref={cardRef} className="glass-card p-8 rounded-2xl neon-border relative overflow-hidden">
               {/* Glow effect */}
               <div className="absolute -top-20 -right-20 w-40 h-40 bg-primary/30 rounded-full blur-3xl" />
               
