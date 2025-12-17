@@ -8,6 +8,10 @@ import foto2 from '@/assets/gallery/foto2.jpeg';
 import foto3 from '@/assets/gallery/foto3.jpeg';
 import foto4 from '@/assets/gallery/foto4.jpeg';
 import foto5 from '@/assets/gallery/foto5.jpeg';
+import foto6 from '@/assets/gallery/foto6.jpeg';
+import foto7 from '@/assets/gallery/foto7.jpeg';
+import foto8 from '@/assets/gallery/foto8.jpeg';
+import foto9 from '@/assets/gallery/foto9.jpeg';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -17,6 +21,10 @@ const galleryItems = [
   { id: 3, title: 'Momento Especial', category: 'Encontros', size: 'small', image: foto2 },
   { id: 4, title: 'Lançamento do Livro', category: 'Eventos', size: 'large', image: foto3 },
   { id: 5, title: 'Parceria', category: 'Networking', size: 'small', image: foto1 },
+  { id: 6, title: 'Palestra Ao Vivo', category: 'Palco', size: 'medium', image: foto6 },
+  { id: 7, title: 'Think Tank AI', category: 'Premiação', size: 'large', image: foto7 },
+  { id: 8, title: 'Domingão com Krug', category: 'Evento', size: 'medium', image: foto8 },
+  { id: 9, title: 'A Vida Não Tá Fácil', category: 'Palestra', size: 'large', image: foto9 },
 ];
 
 const Gallery = () => {
