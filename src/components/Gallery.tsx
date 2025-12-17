@@ -16,15 +16,15 @@ import foto9 from '@/assets/gallery/foto9.jpeg';
 gsap.registerPlugin(ScrollTrigger);
 
 const galleryItems = [
-  { id: 1, title: 'Grande Evento', category: 'Palco', image: foto5, gridClass: 'md:col-span-2 md:row-span-2' },
-  { id: 2, title: 'Domingão com Krug', category: 'Evento', image: foto8, gridClass: 'md:col-span-1 md:row-span-2' },
-  { id: 3, title: 'Momento Especial', category: 'Encontros', image: foto2, gridClass: 'md:col-span-1 md:row-span-1' },
-  { id: 4, title: 'Lançamento do Livro', category: 'Eventos', image: foto3, gridClass: 'md:col-span-2 md:row-span-1' },
-  { id: 5, title: 'Parceria', category: 'Networking', image: foto1, gridClass: 'md:col-span-1 md:row-span-1' },
-  { id: 6, title: 'Palestra Ao Vivo', category: 'Palco', image: foto6, gridClass: 'md:col-span-1 md:row-span-2' },
-  { id: 7, title: 'Think Tank AI', category: 'Premiação', image: foto7, gridClass: 'md:col-span-1 md:row-span-2' },
-  { id: 8, title: 'Domingão', category: 'TV', image: foto4, gridClass: 'md:col-span-1 md:row-span-1' },
-  { id: 9, title: 'A Vida Não Tá Fácil', category: 'Palestra', image: foto9, gridClass: 'col-span-2 md:col-span-3 md:row-span-1' },
+  { id: 1, title: 'Grande Evento', category: 'Palco', image: foto5, gridClass: 'col-span-1 row-span-2 md:col-span-2 md:row-span-2' },
+  { id: 2, title: 'Domingão com Krug', category: 'Evento', image: foto8, gridClass: 'col-span-1 row-span-2 md:col-span-1 md:row-span-2' },
+  { id: 3, title: 'Momento Especial', category: 'Encontros', image: foto2, gridClass: 'col-span-1 row-span-2 md:col-span-1 md:row-span-1' },
+  { id: 4, title: 'Lançamento do Livro', category: 'Eventos', image: foto3, gridClass: 'col-span-1 row-span-2 md:col-span-2 md:row-span-1' },
+  { id: 5, title: 'Parceria', category: 'Networking', image: foto1, gridClass: 'col-span-1 row-span-1 md:col-span-1 md:row-span-1' },
+  { id: 6, title: 'Palestra Ao Vivo', category: 'Palco', image: foto6, gridClass: 'col-span-1 row-span-1 md:col-span-1 md:row-span-2' },
+  { id: 7, title: 'Think Tank AI', category: 'Premiação', image: foto7, gridClass: 'col-span-1 row-span-2 md:col-span-1 md:row-span-2' },
+  { id: 8, title: 'Domingão', category: 'TV', image: foto4, gridClass: 'col-span-1 row-span-2 md:col-span-1 md:row-span-1' },
+  { id: 9, title: 'A Vida Não Tá Fácil', category: 'Palestra', image: foto9, gridClass: 'col-span-2 row-span-1 md:col-span-3 md:row-span-1' },
 ];
 
 const Gallery = () => {
@@ -102,7 +102,7 @@ const Gallery = () => {
   };
 
   const getGridClasses = (gridClass: string) => {
-    return `col-span-1 min-h-[180px] md:min-h-0 ${gridClass}`;
+    return `min-h-[160px] md:min-h-0 ${gridClass}`;
   };
 
   return (
