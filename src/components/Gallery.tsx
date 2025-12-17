@@ -16,15 +16,15 @@ import foto9 from '@/assets/gallery/foto9.jpeg';
 gsap.registerPlugin(ScrollTrigger);
 
 const galleryItems = [
-  { id: 1, title: 'Grande Evento', category: 'Palco', size: 'large', image: foto5 },
-  { id: 2, title: 'Domingão', category: 'TV', size: 'medium', image: foto4 },
-  { id: 3, title: 'Momento Especial', category: 'Encontros', size: 'small', image: foto2 },
-  { id: 4, title: 'Lançamento do Livro', category: 'Eventos', size: 'large', image: foto3 },
-  { id: 5, title: 'Parceria', category: 'Networking', size: 'small', image: foto1 },
-  { id: 6, title: 'Palestra Ao Vivo', category: 'Palco', size: 'medium', image: foto6 },
-  { id: 7, title: 'Think Tank AI', category: 'Premiação', size: 'large', image: foto7 },
-  { id: 8, title: 'Domingão com Krug', category: 'Evento', size: 'medium', image: foto8 },
-  { id: 9, title: 'A Vida Não Tá Fácil', category: 'Palestra', size: 'large', image: foto9 },
+  { id: 1, title: 'Grande Evento', category: 'Palco', image: foto5, gridClass: 'md:col-span-2 md:row-span-2' },
+  { id: 2, title: 'Domingão com Krug', category: 'Evento', image: foto8, gridClass: 'md:col-span-1 md:row-span-2' },
+  { id: 3, title: 'Momento Especial', category: 'Encontros', image: foto2, gridClass: 'md:col-span-1 md:row-span-1' },
+  { id: 4, title: 'Lançamento do Livro', category: 'Eventos', image: foto3, gridClass: 'md:col-span-2 md:row-span-1' },
+  { id: 5, title: 'Parceria', category: 'Networking', image: foto1, gridClass: 'md:col-span-1 md:row-span-1' },
+  { id: 6, title: 'Palestra Ao Vivo', category: 'Palco', image: foto6, gridClass: 'md:col-span-1 md:row-span-2' },
+  { id: 7, title: 'Think Tank AI', category: 'Premiação', image: foto7, gridClass: 'md:col-span-1 md:row-span-2' },
+  { id: 8, title: 'Domingão', category: 'TV', image: foto4, gridClass: 'md:col-span-1 md:row-span-1' },
+  { id: 9, title: 'A Vida Não Tá Fácil', category: 'Palestra', image: foto9, gridClass: 'md:col-span-2 md:row-span-1' },
 ];
 
 const Gallery = () => {
@@ -101,17 +101,8 @@ const Gallery = () => {
     setCurrentIndex((prev) => (prev === galleryItems.length - 1 ? 0 : prev + 1));
   };
 
-  const getSizeClasses = (size: string, index: number) => {
-    // Mobile: simpler grid with alternating sizes
-    // Desktop: larger masonry layout
-    switch (size) {
-      case 'large':
-        return 'col-span-2 row-span-1 md:row-span-2 min-h-[180px] md:min-h-0';
-      case 'medium':
-        return 'col-span-1 row-span-1 md:row-span-2 min-h-[180px] md:min-h-0';
-      default:
-        return 'col-span-1 row-span-1 min-h-[180px] md:min-h-0';
-    }
+  const getGridClasses = (gridClass: string) => {
+    return `col-span-1 min-h-[180px] md:min-h-0 ${gridClass}`;
   };
 
   return (
@@ -165,13 +156,13 @@ const Gallery = () => {
           <div className="lg:col-span-8 order-first lg:order-last">
             <div
               ref={gridRef}
-              className="grid grid-cols-2 gap-3 md:gap-5 auto-rows-auto md:auto-rows-[180px]"
+              className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 auto-rows-[160px] md:auto-rows-[180px]"
             >
               {galleryItems.map((item, index) => (
                 <div
                   key={item.id}
                   onClick={() => openLightbox(index)}
-                  className={`group relative rounded-xl overflow-hidden cursor-pointer ${getSizeClasses(item.size, index)}`}
+                  className={`group relative rounded-xl overflow-hidden cursor-pointer ${getGridClasses(item.gridClass)}`}
                 >
                   {/* Real image */}
                   <img 
