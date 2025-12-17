@@ -142,7 +142,7 @@ const Gallery = () => {
 
         <div className="grid lg:grid-cols-12 gap-8 items-start">
           {/* Left side - CTA Card */}
-          <div ref={cardWrapperRef} className="lg:col-span-4">
+          <div ref={cardWrapperRef} className="lg:col-span-4 order-last lg:order-first">
             <div ref={cardRef} className="glass-card p-8 rounded-2xl neon-border relative overflow-hidden">
               {/* Glow effect */}
               <div className="absolute -top-20 -right-20 w-40 h-40 bg-primary/30 rounded-full blur-3xl" />
@@ -170,7 +170,7 @@ const Gallery = () => {
           </div>
 
           {/* Right side - Photo Grid */}
-          <div className="lg:col-span-8 order-first lg:order-last">
+          <div className="lg:col-span-8">
             <div
               ref={gridRef}
               className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 auto-rows-[160px] md:auto-rows-[180px]"
