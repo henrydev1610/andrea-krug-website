@@ -2,17 +2,31 @@ import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
+// Import brand logos
+import martinsLogo from '@/assets/brands/martins.png';
+import rpcLogo from '@/assets/brands/rpc.png';
+import millsLogo from '@/assets/brands/mills.png';
+import suzanoLogo from '@/assets/brands/suzano.png';
+import globoLogo from '@/assets/brands/globo.png';
+import playGamificationLogo from '@/assets/brands/play-gamification.webp';
+import logo99 from '@/assets/brands/99.png';
+import alpargatasLogo from '@/assets/brands/alpargatas.png';
+import dhlLogo from '@/assets/brands/dhl.png';
+import finiLogo from '@/assets/brands/fini.png';
+
 gsap.registerPlugin(ScrollTrigger);
 
 const brands = [
-  { name: 'TechCorp', initials: 'TC' },
-  { name: 'Innovate', initials: 'IN' },
-  { name: 'FutureX', initials: 'FX' },
-  { name: 'GlobalTech', initials: 'GT' },
-  { name: 'NextGen', initials: 'NG' },
-  { name: 'Synergy', initials: 'SY' },
-  { name: 'Elevate', initials: 'EL' },
-  { name: 'Quantum', initials: 'QT' },
+  { name: 'Martins', logo: martinsLogo },
+  { name: 'RPC', logo: rpcLogo },
+  { name: 'Mills', logo: millsLogo },
+  { name: 'Suzano', logo: suzanoLogo },
+  { name: 'Globo', logo: globoLogo },
+  { name: 'Play Gamification', logo: playGamificationLogo },
+  { name: '99', logo: logo99 },
+  { name: 'Alpargatas', logo: alpargatasLogo },
+  { name: 'DHL', logo: dhlLogo },
+  { name: 'Fini', logo: finiLogo },
 ];
 
 const BrandCarousel = () => {
@@ -67,17 +81,14 @@ const BrandCarousel = () => {
           {brands.map((brand, index) => (
             <div
               key={`brand-1-${index}`}
-              className="flex-shrink-0 mx-8 md:mx-12"
+              className="flex-shrink-0 mx-6 md:mx-10"
             >
-              <div className="glass-card w-32 h-20 md:w-40 md:h-24 flex items-center justify-center rounded-xl hover:neon-border transition-all duration-300 group cursor-pointer">
-                <div className="text-center">
-                  <span className="text-2xl md:text-3xl font-heading font-bold text-muted-foreground group-hover:text-primary transition-colors duration-300">
-                    {brand.initials}
-                  </span>
-                  <p className="text-xs text-muted-foreground/60 font-body mt-1 group-hover:text-muted-foreground transition-colors duration-300">
-                    {brand.name}
-                  </p>
-                </div>
+              <div className="glass-card w-36 h-24 md:w-44 md:h-28 flex items-center justify-center rounded-xl hover:neon-border transition-all duration-300 group cursor-pointer p-4">
+                <img
+                  src={brand.logo}
+                  alt={brand.name}
+                  className="max-w-full max-h-full object-contain opacity-80 group-hover:opacity-100 transition-opacity duration-300"
+                />
               </div>
             </div>
           ))}
@@ -85,17 +96,14 @@ const BrandCarousel = () => {
           {brands.map((brand, index) => (
             <div
               key={`brand-2-${index}`}
-              className="flex-shrink-0 mx-8 md:mx-12"
+              className="flex-shrink-0 mx-6 md:mx-10"
             >
-              <div className="glass-card w-32 h-20 md:w-40 md:h-24 flex items-center justify-center rounded-xl hover:neon-border transition-all duration-300 group cursor-pointer">
-                <div className="text-center">
-                  <span className="text-2xl md:text-3xl font-heading font-bold text-muted-foreground group-hover:text-primary transition-colors duration-300">
-                    {brand.initials}
-                  </span>
-                  <p className="text-xs text-muted-foreground/60 font-body mt-1 group-hover:text-muted-foreground transition-colors duration-300">
-                    {brand.name}
-                  </p>
-                </div>
+              <div className="glass-card w-36 h-24 md:w-44 md:h-28 flex items-center justify-center rounded-xl hover:neon-border transition-all duration-300 group cursor-pointer p-4">
+                <img
+                  src={brand.logo}
+                  alt={brand.name}
+                  className="max-w-full max-h-full object-contain opacity-80 group-hover:opacity-100 transition-opacity duration-300"
+                />
               </div>
             </div>
           ))}
