@@ -24,7 +24,7 @@ const galleryItems = [
   { id: 6, title: 'Palestra Ao Vivo', category: 'Palco', image: foto6, gridClass: 'md:col-span-1 md:row-span-2' },
   { id: 7, title: 'Think Tank AI', category: 'Premiação', image: foto7, gridClass: 'md:col-span-1 md:row-span-2' },
   { id: 8, title: 'Domingão', category: 'TV', image: foto4, gridClass: 'md:col-span-1 md:row-span-1' },
-  { id: 9, title: 'A Vida Não Tá Fácil', category: 'Palestra', image: foto9, gridClass: 'md:col-span-2 md:row-span-1' },
+  { id: 9, title: 'A Vida Não Tá Fácil', category: 'Palestra', image: foto9, gridClass: 'col-span-2 md:col-span-3 md:row-span-1' },
 ];
 
 const Gallery = () => {
