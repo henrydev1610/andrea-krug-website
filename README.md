@@ -215,4 +215,4 @@ Este projeto é privado e pertence a Andréa Krug. Todos os direitos reservados.
 
 ---
 
-*Desenvolvido com ❤️ usando [Lovable](https://lovable.dev)*
+*Desenvolvido com ❤️ por ##Paralax Digital
