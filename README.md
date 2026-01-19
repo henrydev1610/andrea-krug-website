@@ -2,6 +2,8 @@
 
 ![Preview do Site](public/images/site_andrea.png)
 
+**Site:**: [Vercel](https://andrea-krug-website.vercel.app/)
+
 ## 🌟 Sobre o Projeto
 
 Site oficial de **Andréa Krug**, palestrante, mentora executiva e autora do livro "Vai Encarar". O site apresenta uma experiência digital imersiva com design futurista, destacando sua trajetória profissional, eventos, e promovendo seu trabalho de transformação pessoal e corporativa.
@@ -194,12 +196,6 @@ O site implementa boas práticas de SEO:
 
 ---
 
-## 🔗 Links
-
-- **Preview**: https://id-preview--df192ad6-6dff-4336-af4f-810926ccd131.lovable.app
-- **Produção**: https://andrea-krug.lovable.app
-
----
 
 ## 📞 Contato
 
