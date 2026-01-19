@@ -1,6 +1,6 @@
 # Andréa Krug - Site Oficial
 
-![Andréa Krug](https://andrea-krug.lovable.app)
+![Preview do Site](public/images/site_andrea.png)
 
 ## 🌟 Sobre o Projeto
 
